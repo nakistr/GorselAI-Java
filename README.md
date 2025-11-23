@@ -1,43 +1,38 @@
-Features
+📄 AI-Powered Document Summarizer
+A sophisticated desktop application that leverages artificial intelligence to instantly extract and summarize content from various document formats. Built with Java Swing and powered by Google Gemini AI.
+✨ Key Features
+🔐 User Authentication & Security
 
-User Authentication & Security:
+Secure Registration & Login System with BCrypt password hashing for maximum security
+Email Verification via 6-digit verification codes sent through JavaMail API
+Protected user sessions and encrypted password storage
 
-Secure user registration and login system using BCrypt for password hashing.
+🤖 AI-Powered Document Processing
 
-Email Verification: New user registrations require a 6-digit verification code sent via email (JavaMail API).
+Intelligent Text Extraction using Apache Tika for PDF, PowerPoint (PPT/PPTX), and more
+Smart Summarization powered by Google Gemini 1.5 Flash Model
+Real-time document analysis with instant, concise summaries
 
-AI & Document Processing:
+🌍 Multi-Language Support
 
-Text Extraction: Uses Apache Tika to extract raw text from various formats like PDF and PowerPoint (PPT/PPTX).
+Full support for Turkish (TR) and English (EN)
+Seamless language switching on-the-fly
+Dynamically managed UI text via ThemeManager.java
 
-Smart Summarization: Integrated with Google Gemini 1.5 Flash Model to analyze text and generate concise summaries instantly.
+🎨 Modern UI & Dynamic Theming
 
-Multi-Language Support:
+Dark Mode and Light Mode toggle for comfortable viewing
+Custom-designed Swing interface with:
 
-Full support for Turkish (TR) and English (EN) with instant switching capabilities.
+Flattened, modern buttons
+Sleek borders and gradient backgrounds
+Professional, contemporary aesthetic
 
-All UI text is managed dynamically via ThemeManager.java.
 
-Modern UI & Dynamic Theming:
 
-Toggle between a Dark Mode and a Light Mode.
+📊 Database & Activity Logging
 
-Features a custom Swing design with flattened buttons, modern borders, and gradient backgrounds.
-
-Database & Logging:
-
-Activity Logging: Every document process is logged into the database with timestamps for tracking history.
-
-DatabaseManager.java automatically initializes the database and creates required tables (users, processed_documents) on first launch.
-
-🛠️ Tech Stack
-
-Frontend: Java Swing (Customized UI)
-
-Backend: Java 17+
-
-Database: Microsoft SQL Server
-
-AI Integration: Google Gemini API (via OkHttp & Gson)
-
-Libraries: Apache Tika, jBCrypt, JavaMail API
+Comprehensive Activity Logging - Every document process is tracked with timestamps
+Automatic database initialization via DatabaseManager.java
+Structured tables for users and processed documents
+Complete processing history for audit and review
