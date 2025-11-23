@@ -8,12 +8,11 @@ import javax.swing.JOptionPane;
 
 public class DatabaseManager {
  
-    // BURAYI KENDİ SQL SERVER AYARLARINIZLA GÜNCELLEYİN!
-    // Giriş (Login) bilgileriniz, SSMS'de oluşturduğunuz GorselYapayUser ile eşleşmeli.
+
     private static final String SERVER_URL = "jdbc:sqlserver://NAKıS\\SQLEXPRESS;trustServerCertificate=true"; 
     private static final String DB_NAME = "GorselYapayDB"; 
     private static final String DB_USER = "GorselYapayUser"; 
-    private static final String DB_PASS = "adana123"; // Kullanıcı Şifresi (Sizin belirlediğiniz)
+    private static final String DB_PASS = "password";
     
     // Bağlantı URL'leri
     private static final String DATABASE_URL = SERVER_URL + ";databaseName=" + DB_NAME + ";user=" + DB_USER + ";password=" + DB_PASS;
@@ -22,7 +21,7 @@ public class DatabaseManager {
 
     public static void initializeDatabase() {
         
-        // 1. Veritabanı yoksa oluştur
+  
         try (Connection conn = DriverManager.getConnection(MASTER_URL)) {
              Statement stmt = conn.createStatement();
              String sqlCreateDB = "IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = '" + DB_NAME + "') " +
@@ -36,11 +35,11 @@ public class DatabaseManager {
              System.exit(1); 
         }
         
-        // 2. Veritabanına bağlanıp tabloları oluştur
+    
         try (Connection conn = getConnection(); 
              Statement stmt = conn.createStatement()) {
             
-             // 2.1. Kullanıcı Tablosu (users - BCrypt uyumlu)
+            
              String sqlUsers = "IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='users' AND xtype='U') " +
                               "CREATE TABLE users (" +
                               " id INT PRIMARY KEY IDENTITY(1,1)," +
@@ -51,13 +50,13 @@ public class DatabaseManager {
                               " register_date DATETIME NOT NULL DEFAULT GETDATE()" +
                               ");";
              
-             // 2.2. İşlenen Belgeler Tablosu (processed_documents)
+            
              String sqlDocuments = "IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='processed_documents' AND xtype='U') " +
                                    "CREATE TABLE processed_documents (" +
                                    " id INT PRIMARY KEY IDENTITY(1,1)," +
                                    " user_id INT FOREIGN KEY REFERENCES users(id) ON DELETE CASCADE," +
                                    " file_name NVARCHAR(255) NOT NULL," +
-                                   " process_type NVARCHAR(50) NOT NULL," + // Metin / Özet
+                                   " process_type NVARCHAR(50) NOT NULL," + 
                                    " processed_content NVARCHAR(MAX)," + 
                                    " process_date DATETIME NOT NULL DEFAULT GETDATE()" +
                                    ");";

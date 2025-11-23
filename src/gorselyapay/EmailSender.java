@@ -12,10 +12,10 @@ import gorselyapay.ThemeManager.Language;
 
 public class EmailSender {
 
-    // --- BURAYI KESİNLİKLE KENDİ BİLGİLERİNİZLE DEĞİŞTİRİN ---
-    private static final String GMAIL_ADRESIN = "nakismuhammedali@gmail.com"; 
-    private static final String UYGULAMA_SIFREN = "hqpoiuvtwtlifijo"; 
-    // --- DEĞİŞTİRİLECEK ALAN SONU ---
+    
+    private static final String GMAIL_ADRESIN = "mail"; 
+    private static final String UYGULAMA_SIFREN = "psw"; 
+    
     
     public boolean sendVerificationEmail(String kimeGidecekEmail, String dogrulamaKodu, Language language) {
         
@@ -26,7 +26,7 @@ public class EmailSender {
         String emailBodyText = tempThemeManager.getTranslation("EMAIL_BODY_TEXT");
         String emailBodyInstruction = tempThemeManager.getTranslation("EMAIL_BODY_INSTRUCTION");
         
-        // 1. Mail sunucu ayarları (Gmail için standart)
+   
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true"); 
         props.put("mail.smtp.starttls.enable", "true"); 
@@ -34,7 +34,7 @@ public class EmailSender {
         props.put("mail.smtp.port", "587"); 
         props.put("mail.smtp.ssl.trust", "smtp.gmail.com"); 
         
-        // 2. Oturum (Session) oluşturma
+     
         Session session = Session.getInstance(props, new Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
